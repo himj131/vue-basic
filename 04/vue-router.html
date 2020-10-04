@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <title>Vue Router Sample</title>
+</head>
+<body>
+    <div id="app">
+        <h1>뷰 라우터 예제</h1>
+        <p>
+            <!-- url값을 변경하는 태그-->
+            <router-link to="/main">To Main Component</router-link>
+            <router-link to="/login">To Login Component</router-link>
+        </p>
+
+        <!-- URL값에 따라 갱신되는 화면영역 -->
+        <router-view></router-view>
+    </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+    /** 컴포넌트 정의 */
+    var Main = { template : '<div>main</div>' };
+    var Login = { template : '<div>login</div>' };
+
+    /** url에 따른 표시할 컴포턴트 지정 */
+    var routes = [
+        {path: '/main', component:Main},
+        {path: '/login', component:Login}
+    ]
+    /** 뷰 라우터 정의 */
+    var router = new VueRouter({
+        routes
+    });
+
+    /** 뷰 인스턴스에 라우터 추가 */
+    /** 인스턴스 생성시 el속성을 넣지 않았더래도 $mount()를 이용하면 강제로 인스턴스를 화면에 붙일 수 있다.*/
+    var app = new Vue({
+        router
+    }).$mount("#app");
+</script>
+
+</body>
+</html>
