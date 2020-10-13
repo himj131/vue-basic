@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <title>Using Computed</title>
+</head>
+<body>
+<div id="app">
+    <p>{{message}}</p>
+    <p>{{message + "!!!"}}</p>
+<!--    <p>{{message.split('').reverse().join('')}}</p> X, 복잡한 연산은 인스턴스 안에서 수행-->
+    <p>{{reversedMessage}}</p>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js!'
+        },
+        computed : {
+            reversedMessage: function() {
+                return this.message.split('').reverse().join('');
+            }
+        }
+    });
+</script>
