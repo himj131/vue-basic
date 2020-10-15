@@ -79,6 +79,50 @@
 > v-if와 v-show 의 차이  
 > v-if는 태그를 완전히 삭제하지만, v-show는 css효과만 display:none; 으로 주어 실제 태그는 남아 있고 화면상으로만 보이지 않는다.
 #### 이벤트 처리
-#### 고급 템플릿 기
+- 이벤트 처리를 위해 뷰에서는 v-on디렉티브와 methods 속성을 활용한다.
+    - 클릭 이벤트
+        ```js
+          ...
+          <button v-on:click="clickBtn">클릭</button>
+          ...
+          <script>
+            methods: {
+              clickBtn: function() {
+                  alert('clicked');
+              }   
+            }     
+          </script>
+        ```
+  
+    - 클릭 이벤트(메서드 호출시 인자값 넘기기)
+        ```js
+          ...
+          <button v-on:click="clickBtn">클릭</button>
+          ...
+          <script>
+            methods: {
+              clickBtn: function() {
+                  alert('clicked');
+              }   
+            }     
+          </script>
+        ```
+    - v-on:click 으로 호출하는 메서드에 인자를 전달하지 않아도 clickBtn:function(event){} 와 같이  
+      event인자를 정의하면 해당 돔 요소의 이벤트 객체에 접근 할 수 있다.
+       ```js
+         ...
+         <button v-on:click="clickBtn">클릭</button>
+         ...
+         <script>
+           methods: {
+             clickBtn: function(event) {
+                 //돔 요소의 이벤트 객체 접근 가
+                 console.log(event);
+             }   
+           }     
+         </script>
+       ```
+#### 고급 템플릿 기법
+
 
 
