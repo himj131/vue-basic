@@ -164,3 +164,21 @@
     - `vue init browserify simple` : 브라우저리파이 최소 기능을 활용한 프로젝트 구성 방식. 빠른 화면 프로토타이핑용
 - vue init 명령어로 프로젝트를 생성할 때 package.json 파일도 함께 생성된다.
     > package.json파일은 프로젝트 정보와 npm명령어 및 뷰로 애플리케이션을 제작하는 데 필요한 라이브러리 정보들을 포함하고 있다.
+- 뷰 CLI 를 통한 뷰 애플리케이션 구성
+    1. 뷰 CLI설치 : npm i vue-cli -g
+    2. 프로젝트 생성 : vue init webpack-simple
+    3. 관련 라이브러리 설치 : npm install
+    4. 프로젝트 구동 : npm run dev
+
+    
+
+### 뷰 로더
+- .vue파일의 내용을 브라우저에서 실행 가능한 웹페이지의 형태로 변환해준다.
+    - <template></template>, <script></script>, <style></style> 안의 내용이 각각 HTML, 자바스크립트, CSS 코드로 인식될 수 있도록 뷰로더가 변환 작업을 수행한다.
+    - 이러한 변환 기능은 웹팩에서 맡고 있으며 자바스크립트 모듈만 인식할수 있기 때문에 .vue파일을 일단 자바스크립트 모듈로 변환한다.
+    - 웹팩의 추가 플러그인을 이용하면 웹팩으로 변환된 자바 스크립트 모듈을 CSS나 HTML 파일로 분리할 수 있다.
+- webpack프로젝트의 webpack.config.js 파일에서 뷰로더 설정을 확인 할 수 있다.
+    ![vueloaderconfig](vueloaderconfig.png)
+    - module과  rule는 웹팩의 로더를 설정하는 속성이다.
+    - test는 로더가 적용될 대상 파일을 지정하는 속성이고, loader는 적용할 로더의 종류를 지저ㅇ하는 속성이다.
+
